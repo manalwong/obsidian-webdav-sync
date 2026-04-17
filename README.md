@@ -176,13 +176,43 @@ pnpm run build
 
 ---
 
-## 📜 许可证
+## 📜 许可证与版权
 
-本项目基于原项目的开源协议发布。
+本项目采用 **GNU Affero General Public License v3.0 (AGPL-3.0)** 许可证。
+
+### 版权声明
+
+```
+Copyright (C) 2024-2025 坚果云 (Nutstore) - 原作者
+Copyright (C) 2025 Manal Wong - 修改者
+
+本程序是自由软件：您可以在遵守 GNU Affero 通用公共许可证（AGPL）第3版
+或（根据您的选择）任何后续版本的前提下，重新分发和/或修改本程序。
+
+本程序的发布是希望它能有所作用，但没有任何担保；甚至没有对适销性或
+适用于特定用途的默示保证。更多详情请参阅 GNU Affero 通用公共许可证。
+
+您应该已经随本程序收到一份 GNU Affero 通用公共许可证的副本。如果没有，
+请参阅 <https://www.gnu.org/licenses/>。
+```
+
+### Fork 声明
+
+本项目是 [nutstore/obsidian-nutstore-sync](https://github.com/nutstore/obsidian-nutstore-sync) 的 Fork，
+根据 AGPL-3.0 许可证第5条的要求，我们在本仓库中保留了原始版权声明。
+
+### 修改说明
+
+相较于原项目，本 Fork 的主要修改包括：
+- 移除了对坚果云特定 API 的依赖，支持通用 WebDAV 服务器
+- 修复了路径编码问题，提升与群晖 NAS 等服务的兼容性
+- 简化了项目结构，移除了不必要的依赖和构建配置
+- 使用 Obsidian Modal API 重构了目录浏览器
 
 ---
 
 ## 🙏 致谢
 
 - 感谢 [nutstore/obsidian-nutstore-sync](https://github.com/nutstore/obsidian-nutstore-sync) 提供的优秀基础
-- 感谢所有 WebDAV 协议的开源实现者
+- 感谢 [WebDAV](https://github.com/perry-mitchell/webdav-client) 客户端库的作者
+- 感谢所有开源社区的贡献者

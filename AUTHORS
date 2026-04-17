@@ -1,0 +1,26 @@
+# 版权归属 (Attribution)
+
+## 原始作者 (Original Authors)
+
+- **坚果云 (Nutstore)**
+  - 项目: obsidian-nutstore-sync
+  - URL: https://github.com/nutstore/obsidian-nutstore-sync
+  - 许可证: GNU Affero General Public License v3.0
+
+## 修改者 (Contributors)
+
+- **Manal Wong**
+  - 项目: obsidian-webdav-sync (本 Fork)
+  - 修改时间: 2025年
+  - 主要贡献:
+    - 添加通用 WebDAV 服务器支持
+    - 修复路径编码问题
+    - 简化项目结构
+    - 重构目录浏览器实现
+
+## 许可证声明
+
+本项目整体采用 GNU Affero General Public License v3.0 (AGPL-3.0) 许可证。
+原始代码版权归坚果云所有，修改部分版权归 respective contributors 所有。
+
+完整的许可证文本请参见 LICENSE 文件。

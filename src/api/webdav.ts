@@ -1,3 +1,10 @@
+/**
+ * Obsidian WebDAV Sync - WebDAV API Module
+ * Copyright (C) 2024-2025 坚果云 (Nutstore)
+ * Copyright (C) 2025 Manal Wong
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 import { XMLParser } from 'fast-xml-parser'
 import { isNil, partial } from 'lodash-es'
 import { basename, join } from 'path-browserify'
