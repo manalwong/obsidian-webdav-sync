@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"~/*": ["./src/*"],
+			"~": ["./src"]
+		},
+		"inlineSourceMap": true,
+		"inlineSources": true,
+		"module": "ESNext",
+		"target": "ES6",
+		"allowJs": true,
+		"noImplicitAny": true,
+		"moduleResolution": "bundler",
+		"importHelpers": true,
+		"isolatedModules": true,
+		"strictNullChecks": true,
+		"allowSyntheticDefaultImports": true,
+		"lib": ["DOM", "ES2019", "ES2022"]
+	},
+	"include": ["src/**/*.ts"],
+	"exclude": ["packages", "node_modules"]
+}

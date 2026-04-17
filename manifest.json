@@ -1,0 +1,9 @@
+{
+	"id": "obsidian-webdav-sync",
+	"name": "Obsidian WebDAV Sync",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Sync your vault with any WebDAV server (坚果云, Nextcloud, ownCloud, Synology NAS, etc.).",
+	"author": "Manal Wong",
+	"isDesktopOnly": false
+}
