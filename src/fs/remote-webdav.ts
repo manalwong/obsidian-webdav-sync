@@ -65,7 +65,20 @@ export class RemoteWebDAVFileSystem implements AbstractFileSystem {
 			}
 		}
 
-		const statsMap = new Map(stats.map((s) => [s.path, s]))
+		// Fix: Normalize paths for consistent lookup
+		// Original stats paths may not have leading/trailing slashes consistent with subPath
+		const statsMap = new Map(
+			stats.map((s) => {
+				let normalizedPath = s.path
+				if (normalizedPath.endsWith('/')) {
+					normalizedPath = normalizedPath.slice(0, normalizedPath.length - 1)
+				}
+				if (!normalizedPath.startsWith('/')) {
+					normalizedPath = '/' + normalizedPath
+				}
+				return [normalizedPath, s]
+			}),
+		)
 		stats = [...subPath].map((path) => statsMap.get(path)).filter(isNotNil)
 		for (const item of stats) {
 			if (isAbsolute(item.path)) {
@@ -73,6 +86,10 @@ export class RemoteWebDAVFileSystem implements AbstractFileSystem {
 				if (item.path.startsWith('/')) {
 					item.path = item.path.slice(1)
 				}
+			}
+			// Ensure no trailing slash for consistent comparison with local paths
+			if (item.path.endsWith('/')) {
+				item.path = item.path.slice(0, -1)
 			}
 		}
 

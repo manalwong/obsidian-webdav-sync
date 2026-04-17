@@ -91,7 +91,41 @@ function convertToFileStat(
 		}
 	}
 
-	const isDir = !isNil(props.resourcetype?.collection)
+	// Enhanced directory detection for different WebDAV servers
+	// 1. Standard: resourcetype.collection exists
+	// 2. Some servers: resourcetype is an empty object for directories
+	// 3. Fallback: check if getcontenttype is 'httpd/unix-directory' or similar
+	let isDir = false
+	
+	if (!isNil(props.resourcetype?.collection)) {
+		// Standard WebDAV: collection property indicates directory
+		isDir = true
+	} else if (props.resourcetype && typeof props.resourcetype === 'object') {
+		// Check if resourcetype has any keys (some servers use different property names)
+		const rtKeys = Object.keys(props.resourcetype)
+		if (rtKeys.length > 0) {
+			isDir = true
+		}
+	}
+	
+	// Additional fallback: check content type for directory indicators
+	if (!isDir && props.getcontenttype) {
+		const dirContentTypes = [
+			'httpd/unix-directory',
+			'inode/directory',
+			'application/x-directory',
+			'text/directory',
+		]
+		if (dirContentTypes.some(ct => props.getcontenttype?.includes(ct))) {
+			isDir = true
+		}
+	}
+	
+	// Final fallback: if no content length and no content type, likely a directory
+	if (!isDir && !props.getcontentlength && !props.getcontenttype) {
+		isDir = true
+	}
+
 	const href = decodeURIComponent(item.href)
 	const filename =
 		serverBase === '/' ? href : join('/', href.replace(serverBase, ''))
